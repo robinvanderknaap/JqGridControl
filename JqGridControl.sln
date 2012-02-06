@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JqGridControl.Test", "src\JqGridControl.Test\JqGridControl.Test.csproj", "{7E3C2400-01BB-4434-B57A-A115C1A8E7CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JqGridControl", "src\JqGridControl\JqGridControl.csproj", "{E8F17666-3B47-4545-9A11-03BE7A22A0C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E3C2400-01BB-4434-B57A-A115C1A8E7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3C2400-01BB-4434-B57A-A115C1A8E7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3C2400-01BB-4434-B57A-A115C1A8E7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3C2400-01BB-4434-B57A-A115C1A8E7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F17666-3B47-4545-9A11-03BE7A22A0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F17666-3B47-4545-9A11-03BE7A22A0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F17666-3B47-4545-9A11-03BE7A22A0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F17666-3B47-4545-9A11-03BE7A22A0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

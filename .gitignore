@@ -1,0 +1,13 @@
+*resharper.user
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.suo
+*.sln.cache
+_ReSharper.*/
+*.user
+log.txt
+Environment.config
+App_Data/logs/
+App_Data/Invoices/
