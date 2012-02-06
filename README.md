@@ -1,5 +1,5 @@
 # JqGrid Control
-JQGrid Control is a webcontrol for ASP.NET MVC which eases the implementation of jqGrid in your website or webapplication.
+JQGrid Control is a webcontrol for ASP.NET WebForms which eases the implementation of jqGrid in your website or webapplication.
 This version is still under development, nowhere near production-ready.
 	
 ## License
