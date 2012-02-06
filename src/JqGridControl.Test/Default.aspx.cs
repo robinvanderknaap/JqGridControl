@@ -64,7 +64,7 @@ namespace JqGridControl.Test
 
             return new
             {
-                total = totalCustomers / rows,
+                total = (totalCustomers / rows) + ((totalCustomers % rows > 0) ? 1 : 0),
                 page = page,
                 records = totalCustomers,
                 rows = (

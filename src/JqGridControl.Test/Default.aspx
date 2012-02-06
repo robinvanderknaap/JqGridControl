@@ -7,9 +7,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-    <h2>Basic example</h2>
-    
-    <asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true">
+    <asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" Title="Basic Example" RowNumber="9" ViewRecords="true">
         <Columns>   
             <asp:JqGridColumn HeaderText="Id" DataField="Id" />              
             <asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />

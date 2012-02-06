@@ -16,7 +16,6 @@ namespace JqGridControl
     public class JqGrid : Control
     {
         [Category("Settings")]
-        [DefaultValue("")]
         public string Url
         {
             get
@@ -32,7 +31,6 @@ namespace JqGridControl
         }
 
         [Category("Appearance")]
-        [DefaultValue("")]
         public int? Width
         {
             get
@@ -46,7 +44,6 @@ namespace JqGridControl
         }
 
         [Category("Appearance")]
-        [DefaultValue("")]
         public int? Height
         {
             get
@@ -70,6 +67,44 @@ namespace JqGridControl
             set
             {
                 ViewState["PagingEnabled"] = value;
+            }
+        }
+
+        [Category("Settings")]
+        public string Title
+        {
+            get
+            {
+                return ViewState["Title"] != null ? ViewState["Title"].ToString() : null;
+            }
+            set
+            {
+                ViewState["Title"] = value;
+            }
+        }
+
+        [Category("Appearance")]
+        public int? RowNumber
+        {
+            get
+            {
+                return ViewState["RowNumber"] != null ? (int?)ViewState["RowNumber"] : null;
+            }
+            set
+            {
+                ViewState["RowNumber"] = value;
+            }
+        }
+
+        public bool? ViewRecords
+        {
+            get
+            {
+                return ViewState["ViewRecords"] != null ? (bool?)ViewState["ViewRecords"] : null;
+            }
+            set
+            {
+                ViewState["ViewRecords"] = value;
             }
         }
 
@@ -101,14 +136,18 @@ namespace JqGridControl
             // Url
             html.AppendFormat("url: '{0}',", Url).AppendLine();
 
-            // Datatype
-            html.AppendLine("datatype: 'json',");
-
             // Pager
             if (PagingEnabled)
             {
-                html.AppendLine("pager: '#" + ID + "',");
+                html.AppendLine("pager: '#" + ID + "Pager',");
             }
+
+            // Title
+            if (!string.IsNullOrWhiteSpace(Title))
+            {
+                html.AppendFormat("caption: '{0}',", Title).AppendLine();
+            }
+
             // Width
             if (Width.HasValue)
             {
@@ -121,7 +160,19 @@ namespace JqGridControl
 
             // Height
             html.AppendFormat("height: {0},", Height.HasValue ? Height.ToString() : "'100%'").AppendLine();
-                        
+              
+            // Row number
+            if (RowNumber.HasValue)
+            {
+                html.AppendFormat("rowNum: {0},", RowNumber).AppendLine();
+            }
+
+            // View record
+            if (ViewRecords.HasValue)
+            {
+                html.AppendFormat("viewrecords: {0},", ViewRecords.ToString().ToLower()).AppendLine();
+            }
+
             // Column names
             html.AppendFormat("colNames:[{0}],", string.Join(",", Columns.Select(x => "'" + x.HeaderText + "'"))).AppendLine();
 
@@ -133,37 +184,31 @@ namespace JqGridControl
                                 "}"
                             ))).AppendLine();
 
-            // Postdata
-            html.AppendLine(@"serializeGridData: function (postData) {
-                                return JSON.stringify(postData);
-                            },");
-
-            // Jsonreader
+            // Fixed settings
             html.AppendLine(@"
+                                serializeGridData: function (postData) {
+                                    return JSON.stringify(postData);
+                                },
                                 jsonReader : { 
-                                      root: 'd.rows', 
-                                      page: 'd.page', 
-                                      total: 'd.total', 
-                                      records: 'd.records', 
-                                      repeatitems: true, 
-                                      cell: 'cell', 
-                                      id: 'id',
-                                      userdata: 'userdata',
-                                      subgrid: { 
-                                         root:'rows', 
-                                         repeatitems: true, 
-                                         cell:'cell' 
-                                      } 
-                                   },
-                            ");
-
-            // Ajax grid options
-            html.AppendLine(@"ajaxGridOptions: {
-                                contentType: 'application/json; charset=utf-8'
-                            },");
-
-            // Request type
-            html.AppendLine("mtype: 'POST'");
+                                        root: 'd.rows', 
+                                        page: 'd.page', 
+                                        total: 'd.total', 
+                                        records: 'd.records', 
+                                        repeatitems: true, 
+                                        cell: 'cell', 
+                                        id: 'id',
+                                        userdata: 'userdata',
+                                        subgrid: { 
+                                            root:'rows', 
+                                            repeatitems: true, 
+                                            cell:'cell' 
+                                        } 
+                                },
+                                ajaxGridOptions: {
+                                    contentType: 'application/json; charset=utf-8'
+                                },
+                                datatype: 'json',
+                                mtype: 'POST'");
 
             // End javascript
             html.AppendLine("});");
