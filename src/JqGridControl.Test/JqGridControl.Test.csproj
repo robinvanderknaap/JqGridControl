@@ -161,6 +161,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="ToolbarSearch.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="TestData\Customer.cs" />
     <Compile Include="TestData\Repository.cs" />
+    <Compile Include="ToolbarSearch.aspx.cs">
+      <DependentUpon>ToolbarSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolbarSearch.aspx.designer.cs">
+      <DependentUpon>ToolbarSearch.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

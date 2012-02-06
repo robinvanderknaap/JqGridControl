@@ -6,23 +6,53 @@ using AutoPoco.Engine;
 using AutoPoco;
 using AutoPoco.DataSources;
 using Datasources;
+using System.Linq.Expressions;
 
 namespace JqGridControl.Test.TestData
 {
-    public class Repository
+    public class CustomerRepository
     {
-        public IList<Customer> Customers { get; private set; }
+        private IEnumerable<Customer> _customers;
 
-        public Repository()
+        public CustomerRepository()
         {
-            Customers = GetPocoFactory().CreateSession().List<Customer>(200).Get();
+            _customers = GetPocoFactory().CreateSession().List<Customer>(200).Get();
 
             for (var ctr = 1; ctr <= 200; ctr++)
             {
-                Customers[ctr - 1].Id = ctr;
+                _customers.ElementAt(ctr - 1).Id = ctr;
             }
         }
 
+        public virtual Customer GetOne(int id)
+        {
+            return _customers.Single(x => x.Id == id);
+        }
+        
+        public virtual Customer GetOne(List<Func<Customer, bool>> criteria)
+        {
+            return GetAll(criteria).SingleOrDefault();
+        }
+
+        public virtual IEnumerable<Customer> GetAll(List<Func<Customer, bool>> criteria)
+        {
+            var customers = _customers;
+
+            foreach (var criterium in criteria)
+            {
+                customers = customers.Where(criterium);
+            }
+
+            return customers;
+        }
+
+        public IEnumerable<Customer> GetAll<TKey>(List<Func<Customer, bool>> criteria, int page, int pageSize, Func<Customer, TKey> orderBy, string orderByDirection)
+        {
+            return orderByDirection == "asc" ?
+                GetAll(criteria).OrderBy(orderBy).Skip(page * pageSize).Take(pageSize) :
+                GetAll(criteria).OrderByDescending(orderBy).Skip(page * pageSize).Take(pageSize);
+        }
+        
         private static IGenerationSessionFactory GetPocoFactory()
         {
             // Return factory for poco's

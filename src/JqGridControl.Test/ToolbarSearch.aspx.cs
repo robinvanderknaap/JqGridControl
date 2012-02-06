@@ -9,7 +9,7 @@ using JqGridControl.Test.TestData;
 
 namespace JqGridControl.Test
 {
-    public partial class _Default : System.Web.UI.Page
+    public partial class ToolbarSearch : System.Web.UI.Page
     {
         [WebMethod]
         public static object GetGridData(JqGridRequest jqGridRequest)

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="JqGridControl.Test._Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ToolbarSearch.aspx.cs" Inherits="JqGridControl.Test.ToolbarSearch" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent"></asp:Content>
+<asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContent" runat="server"></asp:Content>
 
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" 
-        Title="Basic Example" RowNumber="10" ViewRecords="true">
+    <asp:JqGrid ID="JqGridControl1" runat="server" Url="ToolbarSearch.aspx/GetGridData" PagingEnabled="true" 
+        ToolbarSearchEnabled="true" Title="Toolbar Search Example" RowNumber="10" ViewRecords="true">
         <Columns>   
             <asp:JqGridColumn HeaderText="Id" DataField="Id" />              
             <asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />
@@ -17,7 +17,7 @@
     </asp:JqGrid>
 
     <h2>Source</h2>
-    <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" 
+    <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="ToolbarSearch.aspx/GetGridData" PagingEnabled="true" 
         Title="Basic Example" RowNumber="10" ViewRecords="true">
     &lt;Columns>   
         &lt;asp:JqGridColumn HeaderText="Id" DataField="Id" />              

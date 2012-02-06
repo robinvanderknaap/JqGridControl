@@ -71,6 +71,20 @@ namespace JqGridControl
         }
 
         [Category("Settings")]
+        [DefaultValue(false)]
+        public bool ToolbarSearchEnabled
+        {
+            get
+            {
+                return ViewState["ToolbarSearchEnabled"] != null ? (bool)ViewState["ToolbarSearchEnabled"] : false;
+            }
+            set
+            {
+                ViewState["ToolbarSearchEnabled"] = value;
+            }
+        }
+
+        [Category("Settings")]
         public string Title
         {
             get
@@ -121,6 +135,12 @@ namespace JqGridControl
 
             // Create table which will hold grid
             html.AppendLine("<table id=\"" + ID + "\"></table>");
+
+            // Toolbar search section
+            if (ToolbarSearchEnabled)
+            {
+                html.AppendLine("<table id=\"" + ID + "Search\"></table>");
+            }
 
             // Pager section
             if (PagingEnabled)
@@ -188,21 +208,28 @@ namespace JqGridControl
             // Fixed settings
             html.AppendLine(@"
                                 serializeGridData: function (postData) {
-                                    return JSON.stringify(postData);
+                                    return JSON.stringify({ jqGridRequest : postData });
                                 },
                                 jsonReader : { 
-                                        root: 'd.rows', 
-                                        page: 'd.page', 
-                                        total: 'd.total', 
-                                        records: 'd.records', 
-                                        repeatitems: false, 
-                                        id: 'id',
-                                        userdata: 'userdata',
-                                        subgrid: { 
-                                            root:'rows', 
-                                            repeatitems: true, 
-                                            cell:'cell' 
-                                        } 
+                                    root: 'd.rows', 
+                                    page: 'd.page', 
+                                    total: 'd.total', 
+                                    records: 'd.records', 
+                                    repeatitems: false, 
+                                    id: 'id',
+                                    userdata: 'userdata',
+                                    subgrid: { 
+                                        root:'rows', 
+                                        repeatitems: true, 
+                                        cell:'cell' 
+                                    } 
+                                },
+                                prmNames: {
+                                    page: 'PageIndex',
+                                    rows: 'PageSize', 
+                                    sort: 'SortIndex', 
+                                    order: 'SortOrder', 
+                                    search: 'IsSearch'
                                 },
                                 ajaxGridOptions: {
                                     contentType: 'application/json; charset=utf-8'
@@ -212,6 +239,13 @@ namespace JqGridControl
 
             // End javascript
             html.AppendLine("});");
+
+            // Toolbar search
+            if (ToolbarSearchEnabled)
+            {
+                html.AppendLine("jQuery('#" + ID + "').jqGrid('filterToolbar', {stringResult:true, searchOnEnter:false});");
+            }
+
             html.AppendLine("});");            
             html.AppendLine("</script>");
 
