@@ -7,7 +7,8 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     
-    <asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" Title="Basic Example" RowNumber="9" ViewRecords="true">
+    <asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" 
+        Title="Basic Example" RowNumber="10" ViewRecords="true">
         <Columns>   
             <asp:JqGridColumn HeaderText="Id" DataField="Id" />              
             <asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />
@@ -19,9 +20,10 @@
     </asp:JqGrid>
 
     <h2>Source</h2>
-    <pre>&lt;asp:JqGrid ID="JqGrid1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true">
+    <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="Default.aspx/GetGridData" PagingEnabled="true" 
+    Title="Basic Example" RowNumber="10" ViewRecords="true">
     &lt;Columns>   
-        &lt;asp:JqGridColumn HeaderText="Id" DataField="Id" />              
+        &lt;asp:JqGridColumn HeaderText="Id" DataField="id" />              
         &lt;asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />
         &lt;asp:JqGridColumn HeaderText="Lastname" DataField="Lastname" />
         &lt;asp:JqGridColumn HeaderText="Email" DataField="Email" />

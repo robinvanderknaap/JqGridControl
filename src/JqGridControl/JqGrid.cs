@@ -178,8 +178,9 @@ namespace JqGridControl
 
             // Column model
             html.AppendFormat("colModel:[{0}],", string.Join(",", Columns.Select(x => 
-                                "{name:'" + x.DataField + 
-                                "', index:'" + x.DataField + "'" +
+                                "{name:'" + x.DataField + "'" +
+                                ", index:'" + x.DataField + "'" +
+                                ", title: false" +
                                 (x.Width.HasValue ? ", width:" + x.Width : "")+ 
                                 "}"
                             ))).AppendLine();
@@ -194,8 +195,7 @@ namespace JqGridControl
                                         page: 'd.page', 
                                         total: 'd.total', 
                                         records: 'd.records', 
-                                        repeatitems: true, 
-                                        cell: 'cell', 
+                                        repeatitems: false, 
                                         id: 'id',
                                         userdata: 'userdata',
                                         subgrid: { 

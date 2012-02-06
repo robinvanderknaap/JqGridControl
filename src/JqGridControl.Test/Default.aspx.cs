@@ -61,7 +61,7 @@ namespace JqGridControl.Test
             }
 
             var totalCustomers = repo.Customers.Count;
-
+                        
             return new
             {
                 total = (totalCustomers / rows) + ((totalCustomers % rows > 0) ? 1 : 0),
@@ -69,18 +69,15 @@ namespace JqGridControl.Test
                 records = totalCustomers,
                 rows = (
                     from c in customers
-                    select new
+                    select new Dictionary<string, string>
                     {
-                        id = c.Id,
-                        cell = new[] 
-                        { 
-                            c.Id.ToString(), 
-                            c.Firstname,
-                            c.Lastname,
-                            c.Email,
-                            c.DateOfBirth.ToShortDateString(),
-                            c.City
-                        }
+                        {"Id", c.Id.ToString() }, // Id must always be specified!!
+                        {"Firstname", c.Firstname},
+                        {"Lastname", c.Lastname},
+                        {"Email", c.Email},
+                        {"DateOfBirth", c.DateOfBirth.ToShortDateString()},
+                        {"City", c.City}
+                        
                     }).ToArray()
             };
         }
