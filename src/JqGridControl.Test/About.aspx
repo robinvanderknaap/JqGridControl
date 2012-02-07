@@ -7,7 +7,7 @@
     
     <h2>About JqGrid Control</h2>
     
-    <p>JqGrid Control provides an easy way to integrate JqGrid with your ASP.NET webforms. </p>
+    <p>JqGrid Control provides an easy way to integrate JqGrid with ASP.NET WebForms. </p>
 
     <h2>Contributors</h2>
 

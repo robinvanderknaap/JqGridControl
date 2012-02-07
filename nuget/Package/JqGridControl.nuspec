@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>JqGridControl</id>
+    <version>1.0.0</version>
+    <authors>Robin van der Knaap,Daan le Duc</authors>
+    <owners>Robin van der Knaap,Daan le Duc</owners>
+    <licenseUrl>https://github.com/robinvanderknaap/JqGridControl</licenseUrl>
+    <projectUrl>https://github.com/robinvanderknaap/JqGridControl</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JqGrid Control is a webcontrol for ASP.NET WebForms which eases the implementation of jqGrid in your website or webapplication.</description>
+    <tags>jqgrid, webcontrol, control, servercontrol, asp.net, grid</tags>    
+  </metadata>
+</package>

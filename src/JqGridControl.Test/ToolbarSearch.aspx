@@ -18,7 +18,7 @@
 
     <h2>Source</h2>
     <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="ToolbarSearch.aspx/GetGridData" PagingEnabled="true" 
-        Title="Basic Example" RowNumber="10" ViewRecords="true">
+        ToolbarSearchEnabled="true" Title="Toolbar Search Example" RowNumber="10" ViewRecords="true">
     &lt;Columns>   
         &lt;asp:JqGridColumn HeaderText="Id" DataField="Id" />              
         &lt;asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />

@@ -71,7 +71,7 @@ namespace JqGridControl.Test
                         {"Id", c.Id.ToString() }, // Id must always be specified!!
                         {"Firstname", c.Firstname},
                         {"Lastname", c.Lastname},
-                        {"Email", c.Email},
+                        
                         {"DateOfBirth", c.DateOfBirth.ToShortDateString()},
                         {"City", c.City}
                         
