@@ -110,6 +110,7 @@ namespace JqGridControl
             }
         }
 
+        [Category("Appearance")]
         public bool? ViewRecords
         {
             get
@@ -119,6 +120,19 @@ namespace JqGridControl
             set
             {
                 ViewState["ViewRecords"] = value;
+            }
+        }
+
+        [Category("Settings")]
+        public bool? VirtualScroll
+        {
+            get
+            {
+                return ViewState["VirtualScroll"] != null ? (bool?)ViewState["VirtualScroll"] : null;
+            }
+            set
+            {
+                ViewState["VirtualScroll"] = value;
             }
         }
 
@@ -179,8 +193,11 @@ namespace JqGridControl
             }
 
             // Height
-            html.AppendFormat("height: {0},", Height.HasValue ? Height.ToString() : "'100%'").AppendLine();
-              
+            if (!(VirtualScroll.HasValue && VirtualScroll.Value && !Height.HasValue))
+            {
+                html.AppendFormat("height: {0},", Height.HasValue ? Height.ToString() : "'100%'").AppendLine();
+            }
+ 
             // Row number
             if (RowNumber.HasValue)
             {
@@ -191,6 +208,12 @@ namespace JqGridControl
             if (ViewRecords.HasValue)
             {
                 html.AppendFormat("viewrecords: {0},", ViewRecords.ToString().ToLower()).AppendLine();
+            }
+
+            // Virtual scroll
+            if (VirtualScroll.HasValue && VirtualScroll.Value)
+            {
+                html.AppendLine("scroll: 1,");
             }
 
             // Column names

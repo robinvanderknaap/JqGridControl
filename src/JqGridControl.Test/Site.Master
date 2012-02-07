@@ -28,6 +28,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Basic"/>
                         <asp:MenuItem NavigateUrl="~/ToolbarSearch.aspx" Text="Toolbar Search"/>
+                        <asp:MenuItem NavigateUrl="~/VirtualScrolling.aspx" Text="Virtual Scrolling"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                     </Items>
                 </asp:Menu>

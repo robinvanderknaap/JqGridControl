@@ -4,7 +4,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-    <asp:JqGrid ID="JqGridControl1" runat="server" Url="ToolbarSearch.aspx/GetGridData" PagingEnabled="true" 
+    <asp:JqGrid ID="JqGridControl1" runat="server" Url="TestData/Data.aspx/GetGridData" PagingEnabled="true" 
         ToolbarSearchEnabled="true" Title="Toolbar Search Example" RowNumber="10" ViewRecords="true">
         <Columns>   
             <asp:JqGridColumn HeaderText="Id" DataField="Id" />              
@@ -17,7 +17,7 @@
     </asp:JqGrid>
 
     <h2>Source</h2>
-    <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="ToolbarSearch.aspx/GetGridData" PagingEnabled="true" 
+    <pre>&lt;asp:JqGrid ID="JqGridControl1" runat="server" Url="TestData/Data.aspx/GetGridData" PagingEnabled="true" 
         ToolbarSearchEnabled="true" Title="Toolbar Search Example" RowNumber="10" ViewRecords="true">
     &lt;Columns>   
         &lt;asp:JqGridColumn HeaderText="Id" DataField="Id" />              

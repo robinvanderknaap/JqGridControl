@@ -161,7 +161,9 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TestData\Data.aspx" />
     <Content Include="ToolbarSearch.aspx" />
+    <Content Include="VirtualScrolling.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -194,6 +196,13 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="TestData\Customer.cs" />
+    <Compile Include="TestData\Data.aspx.cs">
+      <DependentUpon>Data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestData\Data.aspx.designer.cs">
+      <DependentUpon>Data.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestData\Repository.cs" />
     <Compile Include="ToolbarSearch.aspx.cs">
       <DependentUpon>ToolbarSearch.aspx</DependentUpon>
@@ -201,6 +210,13 @@
     </Compile>
     <Compile Include="ToolbarSearch.aspx.designer.cs">
       <DependentUpon>ToolbarSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualScrolling.aspx.cs">
+      <DependentUpon>VirtualScrolling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VirtualScrolling.aspx.designer.cs">
+      <DependentUpon>VirtualScrolling.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
