@@ -16,7 +16,7 @@ namespace JqGridControl.Test.TestData
 
         public CustomerRepository()
         {
-            _customers = GetPocoFactory().CreateSession().List<Customer>(200).Get();
+            _customers = GetPocoFactory().CreateSession().List<Customer>(1000).Get();
 
             for (var ctr = 1; ctr <= 200; ctr++)
             {
