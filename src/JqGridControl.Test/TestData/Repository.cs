@@ -18,7 +18,7 @@ namespace JqGridControl.Test.TestData
         {
             _customers = GetPocoFactory().CreateSession().List<Customer>(1000).Get();
 
-            for (var ctr = 1; ctr <= 200; ctr++)
+            for (var ctr = 1; ctr <= _customers.Count(); ctr++)
             {
                 _customers.ElementAt(ctr - 1).Id = ctr;
             }
