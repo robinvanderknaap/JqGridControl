@@ -29,7 +29,7 @@ namespace JqGridControl.Test.TestData
                     }
                     if (rule.field == "Firstname")
                     {
-                        if (rule.field == "Firstname") criteria.Add(x => x.Firstname.ToLower().Contains(userData));
+                        criteria.Add(x => x.Firstname.ToLower().Contains(userData));
                     }
                     if (rule.field == "Lastname")
                     {

@@ -111,6 +111,20 @@ namespace JqGridControl
         }
 
         [Category("Appearance")]
+        public int? ScrollOffset
+        {
+            get
+            {
+                return ViewState["ScrollOffset"] != null ? (int?)ViewState["ScrollOffset"] : null;
+            }
+            set
+            {
+                ViewState["ScrollOffset"] = value;
+            }
+        }
+
+
+        [Category("Appearance")]
         public bool? ViewRecords
         {
             get
@@ -133,6 +147,19 @@ namespace JqGridControl
             set
             {
                 ViewState["VirtualScroll"] = value;
+            }
+        }
+
+        [Category("Client")]
+        public string OnSelectRow
+        {
+            get 
+            {
+                return ViewState["OnSelectRow"] != null ? ViewState["OnSelectRow"].ToString() : null;
+            }
+            set
+            {
+                ViewState["OnSelectRow"] = value;
             }
         }
 
@@ -214,6 +241,18 @@ namespace JqGridControl
             if (VirtualScroll.HasValue && VirtualScroll.Value)
             {
                 html.AppendLine("scroll: 1,");
+            }
+
+            // Scroll offset
+            if (ScrollOffset.HasValue)
+            {
+                html.AppendFormat("scrollOffset: {0},", ScrollOffset.Value).AppendLine();
+            }
+
+            // On select row
+            if (!string.IsNullOrWhiteSpace(OnSelectRow))
+            {
+                html.AppendFormat("onSelectRow: {0},", OnSelectRow).AppendLine();
             }
 
             // Column names
