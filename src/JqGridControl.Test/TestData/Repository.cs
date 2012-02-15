@@ -24,17 +24,17 @@ namespace JqGridControl.Test.TestData
             }
         }
 
-        public virtual Customer GetOne(int id)
+        public Customer GetOne(int id)
         {
             return _customers.Single(x => x.Id == id);
         }
         
-        public virtual Customer GetOne(List<Func<Customer, bool>> criteria)
+        public Customer GetOne(List<Func<Customer, bool>> criteria)
         {
             return GetAll(criteria).SingleOrDefault();
         }
 
-        public virtual IEnumerable<Customer> GetAll(List<Func<Customer, bool>> criteria)
+        public IEnumerable<Customer> GetAll(List<Func<Customer, bool>> criteria)
         {
             var customers = _customers;
 
@@ -44,6 +44,11 @@ namespace JqGridControl.Test.TestData
             }
 
             return customers;
+        }
+
+        public IEnumerable<string> GetAllCities()
+        {
+            return _customers.Select(x => x.City).Distinct();
         }
 
         public IEnumerable<Customer> GetAll<TKey>(List<Func<Customer, bool>> criteria, int page, int pageSize, Func<Customer, TKey> orderBy, string orderByDirection)

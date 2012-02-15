@@ -11,7 +11,7 @@
             <asp:JqGridColumn HeaderText="Firstname" DataField="Firstname" />
             <asp:JqGridColumn HeaderText="Lastname" DataField="Lastname" />
             <asp:JqGridColumn HeaderText="Email" DataField="Email" />
-            <asp:JqGridColumn HeaderText="City" DataField="City" />
+            <asp:JqGridColumn HeaderText="City" DataField="City"/>
             <asp:JqGridColumn HeaderText="Date Of Birth" DataField="DateOfBirth" />
         </Columns>
     </asp:JqGrid>

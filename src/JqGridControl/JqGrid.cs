@@ -123,7 +123,6 @@ namespace JqGridControl
             }
         }
 
-
         [Category("Appearance")]
         public bool? ViewRecords
         {
@@ -264,6 +263,8 @@ namespace JqGridControl
                                 ", index:'" + x.DataField + "'" +
                                 ", title: false" +
                                 (x.Width.HasValue ? ", width:" + x.Width : "")+ 
+                                (x.SearchOptions != null && x.SearchOptions.Any() ? ", stype: 'select'" : "")+
+                                (x.SearchOptions != null && x.SearchOptions.Any() ? ", searchoptions: { value: ':;" + string.Join(";", x.SearchOptions.Select(y => y.Value + ":" + y.Text)) + "'}" : "") +
                                 "}"
                             ))).AppendLine();
 

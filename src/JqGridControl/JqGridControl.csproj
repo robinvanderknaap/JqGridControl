@@ -48,6 +48,7 @@
     <Compile Include="DataMember.cs" />
     <Compile Include="JqGrid.cs" />
     <Compile Include="JqGridColumn.cs" />
+    <Compile Include="SearchOption.cs" />
     <Compile Include="JqGridRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
