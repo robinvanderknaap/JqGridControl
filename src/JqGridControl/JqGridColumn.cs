@@ -15,6 +15,7 @@ namespace JqGridControl
         public string HeaderText { get; set; }
         public string DataField { get; set; }
         public int? Width { get; set; }
+        public bool DatePicker { get; set; }
 
         [PersistenceMode(PersistenceMode.InnerProperty)]
         public List<SearchOption> SearchOptions

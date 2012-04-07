@@ -265,6 +265,7 @@ namespace JqGridControl
                                 (x.Width.HasValue ? ", width:" + x.Width : "")+ 
                                 (x.SearchOptions != null && x.SearchOptions.Any() ? ", stype: 'select'" : "")+
                                 (x.SearchOptions != null && x.SearchOptions.Any() ? ", searchoptions: { value: ':;" + string.Join(";", x.SearchOptions.Select(y => y.Value + ":" + y.Text)) + "'}" : "") +
+                                (!(x.SearchOptions != null && x.SearchOptions.Any()) && x.DatePicker ? ", searchoptions: { dataInit:function(el){$(el).datepicker({changeYear:true, onSelect: function() {var sgrid = $('#" + ID + "')[0]; sgrid.triggerToolbar();},dateFormat:'dd-mm-yy'});} }" : "") +
                                 "}"
                             ))).AppendLine();
 
